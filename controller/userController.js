@@ -93,6 +93,7 @@ exports.login = (req, res) => {
             );
 
             if (passwordComfirmed) {
+              console.log('password confirm')
               res.send({ authUser: createAccessToken(foundUser) });
             } else {
               res.send({ error: "Oopps wrong password" });
