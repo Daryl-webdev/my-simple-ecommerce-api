@@ -18,6 +18,7 @@ app.use(cors());
 app.use("/uploads", express.static("uploads"));
 
 //==================================Data Base Set Up===================================
+mongoose.set("strictQuery", false);
 mongoose.connect(process.env.DB_CONNECT,
 {
 	useNewUrlParser: true,
