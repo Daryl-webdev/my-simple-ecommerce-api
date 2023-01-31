@@ -18,7 +18,7 @@ app.use(cors());
 app.use("/uploads", express.static("uploads"));
 
 //==================================Data Base Set Up===================================
-mongoose.connect('mongodb+srv://daryl:grimaldo24@grimaldo-b121.pnyea.mongodb.net/daryl-b121',
+mongoose.connect(process.env.DB_CONNECT,
 {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
