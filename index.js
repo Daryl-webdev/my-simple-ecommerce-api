@@ -18,10 +18,11 @@ app.use(cors());
 app.use("/uploads", express.static("uploads"));
 
 //==================================Data Base Set Up===================================
-mongoose.connect(process.env.DB_CONNECT, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb+srv://daryl:grimaldo24@grimaldo-b121.pnyea.mongodb.net/daryl-b121',
+{
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+})
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection Error"));
 db.once("open", () => console.log("Connected to Cloud Data Base"));
