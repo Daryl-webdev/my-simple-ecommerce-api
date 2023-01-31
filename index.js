@@ -14,11 +14,16 @@ const port = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+	credentials: true,
+    origin: [ process.env.CORS_ORIGIN_1, process.env.CORS_ORIGIN_2],
+    preflightContinue: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    optionsSuccessStatus: 200,
+}));
 app.use("/uploads", express.static("uploads"));
 
 //==================================Data Base Set Up===================================
-console.log('mongodb uri ==>',process.env.DB_CONNECT)
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.DB_CONNECT,
 {
